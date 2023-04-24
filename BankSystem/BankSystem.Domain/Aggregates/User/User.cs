@@ -9,6 +9,15 @@ namespace BankSystem.Domain.Aggregates.User
 
         public virtual List<Account> Accounts { get; }
 
+        /// <summary>
+        /// Added only for test assesment purpose
+        /// to have pressed users
+        /// </summary>
+        public User(Guid id, string name): this(name)
+        {
+            Id = id;
+        }
+
         public User(string name) 
         {
             Name = name;
