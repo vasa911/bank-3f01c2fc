@@ -7,7 +7,7 @@ namespace BankSystem.Domain.Aggregates.User
         [MaxLength(50)]
         public string Name { get; }
 
-        public virtual List<Account> Accounts { get; }
+        public virtual ICollection<Account> Accounts { get; }
 
 
         protected User()
@@ -28,8 +28,6 @@ namespace BankSystem.Domain.Aggregates.User
             Name = name;
             Accounts = new List<Account>();
         }
-
-
 
         public Account CreateAccount(string accountName)
         {

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BankSystem.Domain.Aggregates.User
 {
@@ -7,6 +8,9 @@ namespace BankSystem.Domain.Aggregates.User
         [MaxLength(10)]
         public string Name { get; private set; }
         public decimal Balance { get; private set; }
+
+        public Guid UserId { get; private set; }
+        public virtual User User { get; set; }
 
         public Account(string name)
         {

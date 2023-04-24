@@ -1,7 +1,7 @@
+using BankSystem.Application.Mappers;
 using BankSystem.Application.Services;
 using BankSystem.Infrastructure;
 using BankSystem.Infrastructure.Repositories;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +16,7 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(BankS
 builder.Services.AddDbContext<BankContext>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserIdentityService, UserIdentitySevice>();
+builder.Services.AddAutoMapper(typeof(UserMappingProfile));
 
 var app = builder.Build();
 

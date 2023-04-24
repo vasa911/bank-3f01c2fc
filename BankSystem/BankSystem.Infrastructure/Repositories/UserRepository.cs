@@ -1,5 +1,6 @@
 ﻿using BankSystem.Domain.Aggregates.User;
 using BankSystem.Infrastructure.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace BankSystem.Infrastructure.Repositories
 {
@@ -10,7 +11,7 @@ namespace BankSystem.Infrastructure.Repositories
 
         public UserRepository(BankContext context)
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context)); 
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
         public User Add(User user)
@@ -25,7 +26,7 @@ namespace BankSystem.Infrastructure.Repositories
 
         public async Task<User?> GetById(Guid id)
         {
-            return await _context.Users.FindAsync(id);
+            return await _context.Users.Include(u => u.Accounts).SingleOrDefaultAsync(u => u.Id == id);
         }
     }
 }
