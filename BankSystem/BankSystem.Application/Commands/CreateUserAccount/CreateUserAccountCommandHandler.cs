@@ -1,9 +1,9 @@
 ﻿using BankSystem.Infrastructure.Repositories;
 using MediatR;
 
-namespace BankSystem.Application.Commands
+namespace BankSystem.Application.Commands.CreateUserAccount
 {
-    public class CreateUserAccountCommandHandler : IRequestHandler<CreateUserAccount>
+    public class CreateUserAccountCommandHandler : IRequestHandler<CreateUserAccountCommand>
     {
         private readonly IUserRepository _userRepository;
         public CreateUserAccountCommandHandler(IUserRepository userRepository)
@@ -11,7 +11,7 @@ namespace BankSystem.Application.Commands
             _userRepository = userRepository;
         }
 
-        public async Task Handle(CreateUserAccount request, CancellationToken cancellationToken)
+        public async Task Handle(CreateUserAccountCommand request, CancellationToken cancellationToken)
         {
             var id = Guid.NewGuid();
             var user = await _userRepository.GetById(id);
