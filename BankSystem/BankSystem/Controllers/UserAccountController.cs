@@ -14,8 +14,8 @@ namespace BankSystem.Controllers
             _logger = logger;
         }
 
-        [HttpPost(Name = "AddUserAccount")]
-        public Task<bool> Add(string name)
+        [HttpPost(Name = "CreateUserAccount")]
+        public Task<bool> Create(string name)
         {
 
             //create account
