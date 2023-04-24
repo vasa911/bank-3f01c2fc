@@ -2,8 +2,8 @@
 {
     public class Entity
     {
-        int id;
-        public virtual int Id
+        Guid id;
+        public virtual Guid Id
         {
             get => id;
             protected set => id = value;

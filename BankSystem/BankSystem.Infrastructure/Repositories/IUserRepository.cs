@@ -7,6 +7,6 @@ namespace BankSystem.Infrastructure.Repositories
     {
         User Add(User user);
         bool Delete(User User);
-        Task<User> FindByIdAsync(int id);
+        Task<User> GetById(Guid id);
     }
 }

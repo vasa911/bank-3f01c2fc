@@ -23,7 +23,7 @@ namespace BankSystem.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<User> FindByIdAsync(int id)
+        public Task<User> GetById(Guid id)
         {
             throw new NotImplementedException();
         }
