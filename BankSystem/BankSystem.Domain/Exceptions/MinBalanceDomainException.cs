@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankSystem.Domain.Exceptions
 {
-    internal class MinBalanceDomainException : DomainException
+    public class MinBalanceDomainException : DomainException
     {
         public decimal MinAmount { get; }
         public MinBalanceDomainException(decimal maxAmount)
