@@ -23,7 +23,7 @@ namespace BankSystem.Domain.Aggregates.User
         public Account(string name)
         {
             Name = name;
-            Balance = 100;
+            Balance = MinBalance;
         }
 
 
