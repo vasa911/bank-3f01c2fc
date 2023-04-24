@@ -45,6 +45,7 @@ namespace BankSystem.Domain.Aggregates.User
 
         public bool DepositAccount(Guid accountId, decimal amount)
         {
+            if (!CheckPositiveAmount(amount)) return false;
             var account = Accounts.FirstOrDefault(x => x.Id == accountId);
             if (account == null) { return false; }
 
@@ -55,12 +56,18 @@ namespace BankSystem.Domain.Aggregates.User
 
         public bool WithdrawAccount(Guid accountId, decimal amount)
         {
+            if (!CheckPositiveAmount(amount)) return false;
             var account = Accounts.FirstOrDefault(x => x.Id == accountId);
             if (account == null) { return false; }
 
             account.Withdraw(amount);
 
             return true;
+        }
+
+        private bool CheckPositiveAmount(decimal amount)
+        {
+            return amount > 0;
         }
     }
 }
