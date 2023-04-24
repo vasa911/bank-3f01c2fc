@@ -23,9 +23,9 @@ namespace BankSystem.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<User> GetById(Guid id)
+        public async Task<User?> GetById(Guid id)
         {
-            throw new NotImplementedException();
+            return await _context.Users.FindAsync(id);
         }
     }
 }
