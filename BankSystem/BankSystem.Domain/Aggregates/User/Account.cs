@@ -17,6 +17,8 @@ namespace BankSystem.Domain.Aggregates.User
 
 
         public const decimal MaxDepositAmount = 10000;
+        public const double MaxWithdrawThreshold = 0.9;
+        public const decimal MinBalance = 100;
 
         public Account(string name)
         {
@@ -32,6 +34,26 @@ namespace BankSystem.Domain.Aggregates.User
                 throw new DepositDomainException(amount, MaxDepositAmount);
             }
             Balance += amount;
+        }
+
+        public void Withdraw(decimal amount)
+        {
+            CheckMaxWithdraw(amount);
+
+            Balance -= amount;
+
+            if (Balance < MinBalance)
+            {
+                throw new MinBalanceDomainException(MinBalance);
+            }
+        }
+
+        private void CheckMaxWithdraw(decimal amount)
+        {
+            if ((double)(amount / Balance) > MaxWithdrawThreshold)
+            {
+                throw new WithdrawThresholdDomainExcception(MaxWithdrawThreshold);
+            }
         }
     }
 }

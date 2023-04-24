@@ -6,7 +6,7 @@
         public decimal MaxAmount { get;}
         public DepositDomainException(decimal amount, decimal maxAmount)
         {
-            Amount= amount;
+            Amount = amount;
             MaxAmount= maxAmount;
         }
 

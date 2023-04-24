@@ -1,5 +1,4 @@
 using BankSystem.Application.Commands;
-using BankSystem.Application.Commands.DepositUserAccount;
 using BankSystem.Application.Models;
 using BankSystem.Application.Queries.GetUserAccounts;
 using MediatR;
@@ -45,6 +44,13 @@ namespace BankSystem.Controllers
 
         [HttpPost("Deposit")]
         public async Task<IActionResult> Deposit([FromBody] DepositUserAccountCommand request)
+        {
+            var result = await _mediator.Send(request);
+            return Ok(new { result });
+        }
+
+        [HttpPost("Withdraw")]
+        public async Task<IActionResult> Withdraw([FromBody] WithdrawUserAccountCommand request)
         {
             var result = await _mediator.Send(request);
             return Ok(new { result });

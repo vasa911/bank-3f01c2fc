@@ -53,6 +53,14 @@ namespace BankSystem.Domain.Aggregates.User
             return true;
         }
 
+        public bool WithdrawAccount(Guid accountId, decimal amount)
+        {
+            var account = Accounts.FirstOrDefault(x => x.Id == accountId);
+            if (account == null) { return false; }
 
+            account.Withdraw(amount);
+
+            return true;
+        }
     }
 }

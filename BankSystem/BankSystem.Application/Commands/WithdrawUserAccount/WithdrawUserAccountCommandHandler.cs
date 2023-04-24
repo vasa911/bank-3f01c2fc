@@ -4,11 +4,11 @@ using MediatR;
 
 namespace BankSystem.Application.Commands
 {
-    public class DepositUserAccountCommandHandler : IRequestHandler<DepositUserAccountCommand, bool>
+    public class WithdrawUserAccountCommandHandler : IRequestHandler<WithdrawUserAccountCommand, bool>
     {
         private readonly IUserRepository _userRepository;
         private readonly IUserIdentityService _userIdentityService;
-        public DepositUserAccountCommandHandler(
+        public WithdrawUserAccountCommandHandler(
             IUserRepository userRepository,
             IUserIdentityService userIdentityService)
         {
@@ -16,13 +16,13 @@ namespace BankSystem.Application.Commands
             _userIdentityService = userIdentityService;
         }
 
-        public async Task<bool> Handle(DepositUserAccountCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(WithdrawUserAccountCommand request, CancellationToken cancellationToken)
         {
             var userId = _userIdentityService.GetUserId();
             var user = await _userRepository.GetById(userId);
             ArgumentNullException.ThrowIfNull(user);
 
-            var result = user.DepositAccount(request.AccountId, request.Amount);
+            var result = user.WithdrawAccount(request.AccountId, request.Amount);
             await _userRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
             return result;
         }
