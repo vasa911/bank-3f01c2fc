@@ -1,3 +1,5 @@
+using BankSystem.Application.Commands.CreateUserAccount;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BankSystem.Controllers
@@ -8,18 +10,21 @@ namespace BankSystem.Controllers
     {
 
         private readonly ILogger<UserAccountController> _logger;
+        private readonly IMediator _mediatr;
 
-        public UserAccountController(ILogger<UserAccountController> logger)
+        public UserAccountController(
+            ILogger<UserAccountController> logger,
+            IMediator mediator)
         {
             _logger = logger;
+            _mediatr = mediator;
         }
 
         [HttpPost(Name = "CreateUserAccount")]
-        public Task<bool> Create(string name)
+        public async Task<IActionResult> Create([FromBody] CreateUserAccountCommand request)
         {
-
-            //create account
-            return Task.FromResult(true);
+            var accountId = await _mediatr.Send(request);
+            return Ok(new { accountId });
         }
     }
 }

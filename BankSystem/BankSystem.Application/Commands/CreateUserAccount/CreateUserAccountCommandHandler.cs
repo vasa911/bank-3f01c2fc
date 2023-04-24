@@ -3,7 +3,7 @@ using MediatR;
 
 namespace BankSystem.Application.Commands.CreateUserAccount
 {
-    public class CreateUserAccountCommandHandler : IRequestHandler<CreateUserAccountCommand>
+    public class CreateUserAccountCommandHandler : IRequestHandler<CreateUserAccountCommand, Guid>
     {
         private readonly IUserRepository _userRepository;
         public CreateUserAccountCommandHandler(IUserRepository userRepository)
@@ -11,12 +11,13 @@ namespace BankSystem.Application.Commands.CreateUserAccount
             _userRepository = userRepository;
         }
 
-        public async Task Handle(CreateUserAccountCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreateUserAccountCommand request, CancellationToken cancellationToken)
         {
             var id = Guid.NewGuid();
             var user = await _userRepository.GetById(id);
-            user.CreateAccount(request.Name);
+            var newAccount = user.CreateAccount(request.Name);
             await _userRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+            return newAccount.Id;
         }
     }
 }
