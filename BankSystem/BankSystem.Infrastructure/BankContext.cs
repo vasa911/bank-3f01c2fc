@@ -11,6 +11,7 @@ namespace BankSystem.Infrastructure
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
+            options.UseInMemoryDatabase("BankSystemDb");
         }
 
         public void SeedAsync()
