@@ -1,12 +1,14 @@
 using BankSystem.Application.Mappers;
 using BankSystem.Application.Services;
+using BankSystem.Filters;
 using BankSystem.Infrastructure;
 using BankSystem.Infrastructure.Repositories;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllers(options => options.Filters.Add(typeof(DomainExceptionFilter)));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

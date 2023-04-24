@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using BankSystem.Domain.Exceptions;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BankSystem.Domain.Aggregates.User
@@ -13,6 +14,8 @@ namespace BankSystem.Domain.Aggregates.User
         public Guid UserId { get; private set; }
         public virtual User User { get; set; }
 
+
+
         public const decimal MaxDepositAmount = 10000;
 
         public Account(string name)
@@ -26,7 +29,7 @@ namespace BankSystem.Domain.Aggregates.User
         {
             if (amount > MaxDepositAmount)
             {
-                throw new DepositDomainException($"Can't deposit {amount} for account as it's more than limit (${MaxDepositAmount}) for single transaction");
+                throw new DepositDomainException(amount, MaxDepositAmount);
             }
             Balance += amount;
         }
