@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankSystem.Infrastructure",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankSystem.Application", "BankSystem.Application\BankSystem.Application.csproj", "{BE7C36B5-AD18-45ED-B91E-5FB321B8A995}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{77470192-FD70-46D1-BEBC-F68FE5650558}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankSystem.Domain.UnitTests", "Tests\BankSystem.Domain.UnitTests\BankSystem.Domain.UnitTests.csproj", "{43864A04-9445-4DB6-BA16-09EBF82A6C3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,9 +37,16 @@ Global
 		{BE7C36B5-AD18-45ED-B91E-5FB321B8A995}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE7C36B5-AD18-45ED-B91E-5FB321B8A995}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE7C36B5-AD18-45ED-B91E-5FB321B8A995}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43864A04-9445-4DB6-BA16-09EBF82A6C3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43864A04-9445-4DB6-BA16-09EBF82A6C3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43864A04-9445-4DB6-BA16-09EBF82A6C3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43864A04-9445-4DB6-BA16-09EBF82A6C3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{43864A04-9445-4DB6-BA16-09EBF82A6C3D} = {77470192-FD70-46D1-BEBC-F68FE5650558}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {45EB382E-DFAD-439B-BB74-8DF84BB7558F}
