@@ -15,6 +15,8 @@ namespace BankSystem.Application.Commands
         {
             var id = Guid.NewGuid();
             var user = await _userRepository.GetById(id);
+            user.CreateAccount(request.Name);
+            await _userRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
         }
     }
 }

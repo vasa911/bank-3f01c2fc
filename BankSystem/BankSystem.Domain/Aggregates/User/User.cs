@@ -14,5 +14,10 @@ namespace BankSystem.Domain.Aggregates.User
             Name = name;
             Accounts = new List<Account>();
         }
+
+        public void CreateAccount(string accountName)
+        {
+            Accounts.Add(new Account(accountName));
+        }
     }
 }

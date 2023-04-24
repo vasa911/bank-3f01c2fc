@@ -6,11 +6,12 @@ namespace BankSystem.Domain.Aggregates.User
     {
         [MaxLength(10)]
         public string Name { get; private set; }
-        public double Balance { get; private set; }
+        public decimal Balance { get; private set; }
 
         public Account(string name)
         {
             Name = name;
+            Balance = 100;
         }
     }
 }
