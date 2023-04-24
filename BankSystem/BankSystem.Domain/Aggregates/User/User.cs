@@ -42,5 +42,17 @@ namespace BankSystem.Domain.Aggregates.User
             if (accountToDelete == null) { return false; }
             return Accounts.Remove(accountToDelete);
         }
+
+        public bool DepositAccount(Guid accountId, decimal amount)
+        {
+            var account = Accounts.FirstOrDefault(x => x.Id == accountId);
+            if (account == null) { return false; }
+
+            account.Deposit(amount);
+
+            return true;
+        }
+
+
     }
 }

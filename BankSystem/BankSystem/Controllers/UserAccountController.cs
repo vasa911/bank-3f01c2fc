@@ -1,4 +1,5 @@
 using BankSystem.Application.Commands;
+using BankSystem.Application.Commands.DepositUserAccount;
 using BankSystem.Application.Models;
 using BankSystem.Application.Queries.GetUserAccounts;
 using MediatR;
@@ -21,24 +22,31 @@ namespace BankSystem.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet(Name = "GetUserAccounts")]
+        [HttpGet]
         public async Task<IEnumerable<UserAccount>> Get()
         {
             return await _mediator.Send(new GetUserAccountsQuery());
         }
 
 
-        [HttpPost(Name = "CreateUserAccount")]
+        [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateUserAccountCommand request)
         {
             var accountId = await _mediator.Send(request);
             return Ok(new { accountId });
         }
 
-        [HttpDelete(Name = "DeleteUserAccount")]
+        [HttpDelete]
         public async Task<IActionResult> Delete(Guid id)
         {
             var result = await _mediator.Send(new DeleteUserAccountCommand(id));
+            return Ok(new { result });
+        }
+
+        [HttpPost("Deposit")]
+        public async Task<IActionResult> Deposit([FromBody] DepositUserAccountCommand request)
+        {
+            var result = await _mediator.Send(request);
             return Ok(new { result });
         }
     }
