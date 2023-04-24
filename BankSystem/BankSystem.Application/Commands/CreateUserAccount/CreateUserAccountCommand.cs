@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace BankSystem.Application.Commands.CreateUserAccount
+namespace BankSystem.Application.Commands
 {
     public class CreateUserAccountCommand : IRequest<Guid>
     {

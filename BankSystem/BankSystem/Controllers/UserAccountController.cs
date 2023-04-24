@@ -1,4 +1,4 @@
-using BankSystem.Application.Commands.CreateUserAccount;
+using BankSystem.Application.Commands;
 using BankSystem.Application.Models;
 using BankSystem.Application.Queries.GetUserAccounts;
 using MediatR;
@@ -33,6 +33,13 @@ namespace BankSystem.Controllers
         {
             var accountId = await _mediator.Send(request);
             return Ok(new { accountId });
+        }
+
+        [HttpDelete(Name = "DeleteUserAccount")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var result = await _mediator.Send(new DeleteUserAccountCommand(id));
+            return Ok(new { result });
         }
     }
 }

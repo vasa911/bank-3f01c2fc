@@ -4,27 +4,28 @@ using MediatR;
 
 namespace BankSystem.Application.Commands
 {
-    public class CreateUserAccountCommandHandler : IRequestHandler<CreateUserAccountCommand, Guid>
+    public class DeleteUserAccountCommandHandler : IRequestHandler<DeleteUserAccountCommand, bool>
     {
         private readonly IUserRepository _userRepository;
         private readonly IUserIdentityService _userIdentityService;
-        public CreateUserAccountCommandHandler(
-            IUserRepository userRepository, 
+        public DeleteUserAccountCommandHandler(
+            IUserRepository userRepository,
             IUserIdentityService userIdentityService)
         {
             _userRepository = userRepository;
             _userIdentityService = userIdentityService;
         }
 
-        public async Task<Guid> Handle(CreateUserAccountCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(DeleteUserAccountCommand request, CancellationToken cancellationToken)
         {
             var userId = _userIdentityService.GetUserId();
             var user = await _userRepository.GetById(userId);
             ArgumentNullException.ThrowIfNull(user);
 
-            var newAccount = user.CreateAccount(request.Name);
+            var result = user.DeleteAccount(request.AccountId);
             await _userRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
-            return newAccount.Id;
+            return result;
+
         }
     }
 }

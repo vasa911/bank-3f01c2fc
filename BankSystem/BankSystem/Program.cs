@@ -6,13 +6,11 @@ using BankSystem.Infrastructure.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(BankSystem.Application.Commands.CreateUserAccount.CreateUserAccountCommand).Assembly));
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(BankSystem.Application.Commands.CreateUserAccountCommand).Assembly));
 builder.Services.AddDbContext<BankContext>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserIdentityService, UserIdentitySevice>();

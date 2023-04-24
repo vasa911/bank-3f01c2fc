@@ -35,5 +35,12 @@ namespace BankSystem.Domain.Aggregates.User
             Accounts.Add(account);
             return account;
         }
+
+        public bool DeleteAccount(Guid accountId)
+        {
+            var accountToDelete = Accounts.FirstOrDefault(x => x.Id == accountId);
+            if (accountToDelete == null) { return false; }
+            return Accounts.Remove(accountToDelete);
+        }
     }
 }
