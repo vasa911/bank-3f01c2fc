@@ -14,18 +14,5 @@ namespace BankSystem.Infrastructure
             options.UseInMemoryDatabase("BankSystemDb");
         }
 
-        public void SeedAsync()
-        {
-            Database.EnsureCreated();
-
-            if (!Users.Any())
-            {
-                Users.Add(new User(
-                    new Guid("797c5451-93e9-4af8-86e7-4b440172dea4"), "test -assesment")
-                    );
-            }
-
-            this.SaveChanges();
-        }
     }
 }
