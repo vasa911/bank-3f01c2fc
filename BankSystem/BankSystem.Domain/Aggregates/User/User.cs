@@ -16,7 +16,7 @@ namespace BankSystem.Domain.Aggregates.User
         }
         /// <summary>
         /// Added only for test assesment purpose
-        /// to have pressed users
+        /// to preseed users
         /// </summary>
         public User(Guid id, string name) : this(name)
         {

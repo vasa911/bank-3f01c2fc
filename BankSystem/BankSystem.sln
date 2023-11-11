@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankSystem.WebApi", "BankSystem\BankSystem.WebApi.csproj", "{986499D4-90B6-4F11-9D59-CECBA6BC988D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankSystem.WebApi", "BankSystem\BankSystem.WebApi.csproj", "{986499D4-90B6-4F11-9D59-CECBA6BC988D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankSystem.Domain", "BankSystem.Domain\BankSystem.Domain.csproj", "{A69F08BA-4D23-4D2D-8599-91A259810B67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankSystem.Domain", "BankSystem.Domain\BankSystem.Domain.csproj", "{A69F08BA-4D23-4D2D-8599-91A259810B67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankSystem.Infrastructure", "BankSystem.Infrastructure\BankSystem.Infrastructure.csproj", "{DB2BA68C-86EF-41B1-970F-49A5CBA78DA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankSystem.Infrastructure", "BankSystem.Infrastructure\BankSystem.Infrastructure.csproj", "{DB2BA68C-86EF-41B1-970F-49A5CBA78DA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankSystem.Application", "BankSystem.Application\BankSystem.Application.csproj", "{BE7C36B5-AD18-45ED-B91E-5FB321B8A995}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankSystem.Application", "BankSystem.Application\BankSystem.Application.csproj", "{BE7C36B5-AD18-45ED-B91E-5FB321B8A995}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{77470192-FD70-46D1-BEBC-F68FE5650558}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankSystem.Domain.UnitTests", "Tests\BankSystem.Domain.UnitTests\BankSystem.Domain.UnitTests.csproj", "{43864A04-9445-4DB6-BA16-09EBF82A6C3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankSystem.Domain.UnitTests", "Tests\BankSystem.Domain.UnitTests\BankSystem.Domain.UnitTests.csproj", "{43864A04-9445-4DB6-BA16-09EBF82A6C3D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2AD3947A-2A6B-4E54-93F2-428B005E6B18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

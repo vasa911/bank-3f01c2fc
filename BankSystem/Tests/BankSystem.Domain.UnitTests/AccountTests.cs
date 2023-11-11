@@ -57,8 +57,8 @@ namespace BankSystem.Domain.UnitTests
             // arrange
             decimal amount = 50;
             decimal depositAmount = 100; // we need balance more than MinBalance in order to Withdraw
-            _account.Deposit(100);
-            decimal expectedBalance = _account.Balance + depositAmount - amount;
+            _account.Deposit(depositAmount);
+            decimal expectedBalance = _account.Balance - amount;
 
             // Act
             _account.Withdraw(amount);

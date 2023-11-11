@@ -13,7 +13,7 @@ namespace BankSystem.Infrastructure
             if (!context.Users.Any())
             {
                 context.Users.Add(new User(
-                    new Guid("797c5451-93e9-4af8-86e7-4b440172dea4"), "test -assesment")
+                    new Guid("797c5451-93e9-4af8-86e7-4b440172dea4"), "test-assesment")
                     );
             }
 
